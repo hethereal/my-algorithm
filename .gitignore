@@ -10,3 +10,7 @@ algorithm_rust/.idea
 # 忽略Java产出文件
 algorithm_java/out/
 algorithm_java/.idea
+
+
+# 忽略Python文件产出
+algorithm_python/.idea
