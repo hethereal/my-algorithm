@@ -1,6 +1,12 @@
 # 忽略C++产出文件
 algorithm_cpp/cmake-build-debug/
 algorithm_cpp/main.cpp
+algorithm_cpp/.idea
 
 # 忽略Rust产出文件
 algorithm_rust/target/
+algorithm_rust/.idea
+
+# 忽略Java产出文件
+algorithm_java/out/
+algorithm_java/.idea
