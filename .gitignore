@@ -1,0 +1,6 @@
+# 忽略C++产出文件
+algorithm_cpp/cmake-build-debug/
+algorithm_cpp/main.cpp
+
+# 忽略Rust产出文件
+algorithm_rust/target/
