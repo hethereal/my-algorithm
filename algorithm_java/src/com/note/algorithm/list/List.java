@@ -118,4 +118,88 @@ public class List
         pre.next = cur1 != null ? cur1 : cur2;
         return head;
     }
+
+    /**
+     * 两个链表相加
+     *
+     */
+    public static ListNode addTwoNumbers(ListNode h1, ListNode h2)
+    {
+        //头节点和指向当前节点的游标
+        ListNode ans = null, cur = null;
+        //存储进位
+        int carry = 0;
+        //利用for循环遍历两个链表
+        for (int sum, val; h1 != null || h2 != null;
+             h1 = h1 == null ? null : h1.next,
+             h2 = h2 == null ? null : h2.next
+        )
+        {
+            //计算两个节点相加的和
+            sum = (h1 == null ? 0 : h1.value)
+                    + (h2 == null ? 0 : h2.value)
+                    + carry;
+            //获取 个位数 及 进位
+            val = sum % 10;
+            carry = sum / 10;
+            //ans为null说明现在还没有节点，
+            // 创建一个新节点将值存进去，并将游标指向这个节点
+            if (ans == null)
+            {
+                ans = new ListNode(val);
+                cur = ans;
+            } else
+            //否则说明已经有头节点了，那么值直接往后面挂载
+            {
+                cur.next = new ListNode(val);
+                cur = cur.next;
+            }
+        }
+        //循环完事之后看看是不是还有进位
+        if (carry == 1)
+            cur.next = new ListNode(1);
+        //最后将头节点返回
+        return ans;
+    }
+
+    /**
+     * 分隔链表
+     */
+    public static ListNode partition(ListNode head, int x)
+    {
+        // < 的区域
+        ListNode leftHead = null, leftTail = null;
+        // >= 的区域
+        ListNode rightHead = null, rightTail = null;
+        //用于记录头节点下一个节点，用于跳转
+        ListNode next = null;
+        //头节点用于遍历，当head为null则链表遍历完毕
+        while (head != null)
+        {
+            //记录下一个节点
+            next = head.next;
+            //将当前节点断连
+            head.next = null;
+            //判断小于x的区域
+            if (head.value < x) {
+                //如果leftHead为null，说明还没有挂过值，将head挂载上去；
+                // leftHead就不动了
+                if (leftHead == null) leftHead = head;
+                //否则将该节点挂载到之前那个挂载好的节点的后面
+                else leftTail.next = head;
+                //将leftTail设置为当前节点
+                leftTail = head;
+            } else {
+                if (rightHead == null) rightHead = head;
+                else rightTail.next = head;
+                rightTail = head;
+            }
+            //移动到下一个节点
+            head = next;
+        }
+        if (leftHead == null) return rightHead;
+        leftTail.next = rightHead;
+        return leftHead;
+    }
+
 }
