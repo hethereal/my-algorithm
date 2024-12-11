@@ -21,6 +21,7 @@ public:
     {}
 
     ListNode* reverseList(ListNode* head);
+    ListNode* merge_two_List(ListNode* head1, ListNode* head2);
 };
 
 template<class T>
@@ -36,6 +37,33 @@ ListNode<T> *ListNode<T>::reverseList(ListNode* head)
         head = ne;
     }
     return pre;
+}
+
+template<class T>
+ListNode<T> *ListNode<T>::merge_two_List(ListNode *head1, ListNode *head2)
+{
+    if (head1 == nullptr || head2 == nullptr)
+        return head1 == nullptr ? head2 : head1;
+    ListNode* head = head1->value <= head2->value ? head1 : head2;
+    ListNode* cur1 = head->next;
+    ListNode* cur2 = head == head1 ? head2 : head1;
+    ListNode* pre = head;
+    while (cur1 != nullptr && cur2 != nullptr)
+    {
+        if (cur1->value <= cur2->value)
+        {
+            pre->next = cur1;
+            cur1 = cur1->next;
+        }
+        else
+        {
+            pre->next = cur2;
+            cur2 = cur2->next;
+        }
+        pre = pre->next;
+    }
+    pre->next = cur1 == nullptr ? cur2 : cur1;
+    return head;
 }
 
 /**
