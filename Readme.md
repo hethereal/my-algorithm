@@ -12,7 +12,7 @@ It uses four languages, includes C++，Java, Rust, Python
 
 ### 1:  Algorithm for Java
 
-Cause the notebook using Java,So I will implement the Algorithm with Java. 
+Cause the notebook using Java,So I will firstly implement the Algorithm with Java. 
 
 The following are algorithms that have been already implemented.
 
