@@ -1,7 +1,6 @@
 package com.note.algorithm.sort;
 
 import java.util.Arrays;
-import java.util.Random;
 
 /**
  * 归并排序
