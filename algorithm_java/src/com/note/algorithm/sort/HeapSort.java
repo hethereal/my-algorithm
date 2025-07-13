@@ -40,8 +40,9 @@ public class HeapSort
         int l = index * 2 + 1;
         while (l < size)
         {
-            int best = l + 1 < size && arr[l] > arr[l + 1] ? l + 1 : l;
-            best = arr[best] > arr[index] ? arr[best] : index;
+            int best = l + 1 < size && arr[l] > arr[l + 1]
+                    ? l + 1 : l;
+            best = arr[best] > arr[index] ? best : index;
             if (best == index) break;
             Tool.swap(arr, index, best);
             index = best;

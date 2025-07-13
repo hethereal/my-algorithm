@@ -3,5 +3,5 @@ project(algorithm_cpp)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(algorithm_cpp main.cpp)
+add_executable(heap_sort sort/heap_sort.cpp)
 add_executable(list linked_list/list.cpp)
