@@ -1,4 +1,4 @@
-package stack;
+package com.note.algorithm.stack;
 
 public class StackImpl
 {
